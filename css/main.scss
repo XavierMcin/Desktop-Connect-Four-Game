@@ -1,0 +1,304 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+    background-color: rgb(45, 47, 61);
+}
+
+#root-container {
+    width: 95vw;
+    height: 100vh;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    display: flex;
+}
+
+#board-container {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+#blocker {
+    width: 100%;
+    height: calc(100% / 6);
+    position: absolute;
+    top: calc(100% / 6 * -1);
+    z-index: 5;
+    background-color: rgb(45, 47, 61);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#game-info {
+    width: 25%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .info {
+        width: 100%;
+        height: 15%;
+        margin-bottom: 15px;
+
+        &:first-of-type {
+            margin-bottom: 10%;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.3rem; 
+        }
+
+        p:first-of-type {
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-align: center;
+            letter-spacing: 10px;
+            margin-bottom: 10px;
+        }
+
+    }
+
+    .record {
+        font-size: 1.2rem;
+        font-weight: 500;
+        text-align: center;
+    }
+
+    .start-button {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        button {
+            width: 90%;
+            height: 80%;
+            font-size: 2rem;
+            font-weight: 600;
+            letter-spacing: 10px;
+        }
+    }
+
+    .choice-button {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        visibility: hidden;
+
+        button {
+            width: 43%;
+            height: 50%;
+            font-size: 1.6rem;
+            font-weight: 600;
+            letter-spacing: 10px;
+
+            &:first-of-type {
+                margin-right: 2%;
+            }
+
+            &:last-of-type {
+                margin-left: 2%;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#board {
+    width: 65%;
+    height: 80%;
+    min-width: 741px;
+    min-height: 577.6px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    background-color: rgb(25, 33, 48);
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+
+    ul {
+        width: calc(100% / 7.5);
+        height: 100%;
+        position: relative;
+
+        li {
+            list-style: none;
+            width: 100%;
+            height: calc(100% / 6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &::before {
+                content: '';
+                display: block;
+                width: 65px;
+                height: 65px;
+                background-color: rgb(255, 255, 255);
+                border-radius: 50%;
+                position: relative;
+                z-index: 0;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#hover-pieces {
+    width: 100%;
+    height: calc(100% / 6);
+    position: absolute;
+    top: calc(100% / 6 * -1);
+    z-index: 1;
+
+    ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+
+        li {
+            width: calc(100% / 7.5);
+            height: 100%;
+            position: relative;
+            border-radius: 50%;
+
+            &:hover {
+                
+                &.blue::before {
+                    opacity: .5;
+                }
+
+                &.red::before {
+                    opacity: .5;
+                }
+            }
+
+            &.blue {
+
+                span {
+                    &::before {
+                        background-color: inherit;
+                    }
+                }
+
+                &::before {
+                    background-color: rgb(3, 23, 252);
+                    opacity: 0;
+                    transition: opacity .1s linear;
+                }
+            }
+            
+
+            &.red {
+
+                span {
+                    &::before {
+                        background-color: inherit;   
+                    }
+                }
+
+                &::before {
+                    background-color: rgb(133, 19, 19);
+                    opacity: 0;
+                    transition: opacity .1s linear;
+                }
+            }
+            
+        }
+    }
+
+    span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        width: 70px;
+        height: 70px;
+        transition: transform .3s linear;
+        border-radius: 50%;
+        
+        &::before {
+            content: '';
+            display: block;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+        }
+    }
+}
